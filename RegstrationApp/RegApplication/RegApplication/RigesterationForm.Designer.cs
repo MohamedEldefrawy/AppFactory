@@ -168,6 +168,7 @@
             // 
             this.rtxtReport.Location = new System.Drawing.Point(6, 19);
             this.rtxtReport.Name = "rtxtReport";
+            this.rtxtReport.ReadOnly = true;
             this.rtxtReport.Size = new System.Drawing.Size(233, 479);
             this.rtxtReport.TabIndex = 0;
             this.rtxtReport.Text = "";
@@ -457,7 +458,7 @@
             this.MinimizeBox = false;
             this.Name = "frmReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "0";
+            this.Text = "Rigesteration";
             this.Load += new System.EventHandler(this.frmReg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownSalary)).EndInit();
