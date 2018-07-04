@@ -36,7 +36,6 @@
             this.lblPercentage = new System.Windows.Forms.Label();
             this.NumericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.txtDescreption = new System.Windows.Forms.TextBox();
-            this.NumericUpDownSalary = new System.Windows.Forms.NumericUpDown();
             this.btnImageBrowse = new System.Windows.Forms.Button();
             this.grpboxReport = new System.Windows.Forms.GroupBox();
             this.rtxtReport = new System.Windows.Forms.RichTextBox();
@@ -51,7 +50,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblJob = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.lblSalary = new System.Windows.Forms.Label();
             this.lblProgrammingLanguage = new System.Windows.Forms.Label();
             this.lblDescreption = new System.Windows.Forms.Label();
             this.ComboBoxStatus = new System.Windows.Forms.ComboBox();
@@ -68,13 +66,17 @@
             this.grpBoxGender = new System.Windows.Forms.GroupBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.printDialog2 = new System.Windows.Forms.PrintDialog();
+            this.NumericUpDownSalary = new System.Windows.Forms.NumericUpDown();
+            this.lblSalary = new System.Windows.Forms.Label();
+            this.dgvEmployees = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownSalary)).BeginInit();
             this.grpboxReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPersonalImg)).BeginInit();
             this.grpBoxHobites.SuspendLayout();
             this.grpBoxBasicInfo.SuspendLayout();
             this.grpBoxGender.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownSalary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
             // PrintDialog1
@@ -88,7 +90,7 @@
             // 
             // btnResult
             // 
-            this.btnResult.Location = new System.Drawing.Point(83, 502);
+            this.btnResult.Location = new System.Drawing.Point(87, 475);
             this.btnResult.Name = "btnResult";
             this.btnResult.Size = new System.Drawing.Size(120, 41);
             this.btnResult.TabIndex = 3;
@@ -98,7 +100,7 @@
             // 
             // ProgressBar1
             // 
-            this.ProgressBar1.Location = new System.Drawing.Point(137, 458);
+            this.ProgressBar1.Location = new System.Drawing.Point(141, 431);
             this.ProgressBar1.Name = "ProgressBar1";
             this.ProgressBar1.Size = new System.Drawing.Size(138, 23);
             this.ProgressBar1.TabIndex = 31;
@@ -106,7 +108,7 @@
             // lblPercentage
             // 
             this.lblPercentage.AutoSize = true;
-            this.lblPercentage.Location = new System.Drawing.Point(116, 465);
+            this.lblPercentage.Location = new System.Drawing.Point(120, 438);
             this.lblPercentage.Name = "lblPercentage";
             this.lblPercentage.Size = new System.Drawing.Size(15, 13);
             this.lblPercentage.TabIndex = 30;
@@ -114,7 +116,7 @@
             // 
             // NumericUpDown2
             // 
-            this.NumericUpDown2.Location = new System.Drawing.Point(62, 461);
+            this.NumericUpDown2.Location = new System.Drawing.Point(66, 434);
             this.NumericUpDown2.Name = "NumericUpDown2";
             this.NumericUpDown2.Size = new System.Drawing.Size(47, 20);
             this.NumericUpDown2.TabIndex = 2;
@@ -122,28 +124,16 @@
             // 
             // txtDescreption
             // 
-            this.txtDescreption.Location = new System.Drawing.Point(16, 339);
+            this.txtDescreption.Location = new System.Drawing.Point(20, 312);
             this.txtDescreption.Multiline = true;
             this.txtDescreption.Name = "txtDescreption";
             this.txtDescreption.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtDescreption.Size = new System.Drawing.Size(258, 99);
             this.txtDescreption.TabIndex = 1;
             // 
-            // NumericUpDownSalary
-            // 
-            this.NumericUpDownSalary.Location = new System.Drawing.Point(163, 268);
-            this.NumericUpDownSalary.Maximum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            0});
-            this.NumericUpDownSalary.Name = "NumericUpDownSalary";
-            this.NumericUpDownSalary.Size = new System.Drawing.Size(111, 20);
-            this.NumericUpDownSalary.TabIndex = 0;
-            // 
             // btnImageBrowse
             // 
-            this.btnImageBrowse.Location = new System.Drawing.Point(304, 123);
+            this.btnImageBrowse.Location = new System.Drawing.Point(309, 153);
             this.btnImageBrowse.Name = "btnImageBrowse";
             this.btnImageBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnImageBrowse.TabIndex = 4;
@@ -159,7 +149,7 @@
             this.grpboxReport.Controls.Add(this.btnPageSetup);
             this.grpboxReport.Location = new System.Drawing.Point(431, 12);
             this.grpboxReport.Name = "grpboxReport";
-            this.grpboxReport.Size = new System.Drawing.Size(245, 535);
+            this.grpboxReport.Size = new System.Drawing.Size(245, 273);
             this.grpboxReport.TabIndex = 33;
             this.grpboxReport.TabStop = false;
             this.grpboxReport.Text = "Report";
@@ -169,13 +159,13 @@
             this.rtxtReport.Location = new System.Drawing.Point(6, 19);
             this.rtxtReport.Name = "rtxtReport";
             this.rtxtReport.ReadOnly = true;
-            this.rtxtReport.Size = new System.Drawing.Size(233, 479);
+            this.rtxtReport.Size = new System.Drawing.Size(233, 211);
             this.rtxtReport.TabIndex = 0;
             this.rtxtReport.Text = "";
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(86, 506);
+            this.btnPreview.Location = new System.Drawing.Point(88, 236);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(75, 23);
             this.btnPreview.TabIndex = 1;
@@ -185,7 +175,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(164, 506);
+            this.btnPrint.Location = new System.Drawing.Point(166, 236);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 2;
@@ -195,7 +185,7 @@
             // 
             // btnPageSetup
             // 
-            this.btnPageSetup.Location = new System.Drawing.Point(5, 506);
+            this.btnPageSetup.Location = new System.Drawing.Point(7, 236);
             this.btnPageSetup.Name = "btnPageSetup";
             this.btnPageSetup.Size = new System.Drawing.Size(75, 23);
             this.btnPageSetup.TabIndex = 0;
@@ -208,7 +198,7 @@
             this.PictureBoxPersonalImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PictureBoxPersonalImg.Location = new System.Drawing.Point(280, 19);
             this.PictureBoxPersonalImg.Name = "PictureBoxPersonalImg";
-            this.PictureBoxPersonalImg.Size = new System.Drawing.Size(127, 89);
+            this.PictureBoxPersonalImg.Size = new System.Drawing.Size(127, 121);
             this.PictureBoxPersonalImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxPersonalImg.TabIndex = 11;
             this.PictureBoxPersonalImg.TabStop = false;
@@ -253,7 +243,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(6, 31);
+            this.lblName.Location = new System.Drawing.Point(6, 19);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 0;
@@ -262,7 +252,7 @@
             // lblJob
             // 
             this.lblJob.AutoSize = true;
-            this.lblJob.Location = new System.Drawing.Point(6, 63);
+            this.lblJob.Location = new System.Drawing.Point(6, 51);
             this.lblJob.Name = "lblJob";
             this.lblJob.Size = new System.Drawing.Size(24, 13);
             this.lblJob.TabIndex = 1;
@@ -271,25 +261,16 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(8, 127);
+            this.lblStatus.Location = new System.Drawing.Point(6, 113);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(37, 13);
             this.lblStatus.TabIndex = 2;
             this.lblStatus.Text = "Status";
             // 
-            // lblSalary
-            // 
-            this.lblSalary.AutoSize = true;
-            this.lblSalary.Location = new System.Drawing.Point(118, 272);
-            this.lblSalary.Name = "lblSalary";
-            this.lblSalary.Size = new System.Drawing.Size(36, 13);
-            this.lblSalary.TabIndex = 23;
-            this.lblSalary.Text = "Salary";
-            // 
             // lblProgrammingLanguage
             // 
             this.lblProgrammingLanguage.AutoSize = true;
-            this.lblProgrammingLanguage.Location = new System.Drawing.Point(17, 465);
+            this.lblProgrammingLanguage.Location = new System.Drawing.Point(21, 438);
             this.lblProgrammingLanguage.Name = "lblProgrammingLanguage";
             this.lblProgrammingLanguage.Size = new System.Drawing.Size(21, 13);
             this.lblProgrammingLanguage.TabIndex = 22;
@@ -298,7 +279,7 @@
             // lblDescreption
             // 
             this.lblDescreption.AutoSize = true;
-            this.lblDescreption.Location = new System.Drawing.Point(16, 323);
+            this.lblDescreption.Location = new System.Drawing.Point(20, 296);
             this.lblDescreption.Name = "lblDescreption";
             this.lblDescreption.Size = new System.Drawing.Size(60, 13);
             this.lblDescreption.TabIndex = 21;
@@ -307,7 +288,7 @@
             // ComboBoxStatus
             // 
             this.ComboBoxStatus.FormattingEnabled = true;
-            this.ComboBoxStatus.Location = new System.Drawing.Point(62, 124);
+            this.ComboBoxStatus.Location = new System.Drawing.Point(60, 113);
             this.ComboBoxStatus.Name = "ComboBoxStatus";
             this.ComboBoxStatus.Size = new System.Drawing.Size(200, 21);
             this.ComboBoxStatus.TabIndex = 3;
@@ -315,21 +296,21 @@
             // 
             // DateTimePickerBirthDate
             // 
-            this.DateTimePickerBirthDate.Location = new System.Drawing.Point(62, 89);
+            this.DateTimePickerBirthDate.Location = new System.Drawing.Point(62, 84);
             this.DateTimePickerBirthDate.Name = "DateTimePickerBirthDate";
             this.DateTimePickerBirthDate.Size = new System.Drawing.Size(200, 20);
             this.DateTimePickerBirthDate.TabIndex = 2;
             // 
             // txtJob
             // 
-            this.txtJob.Location = new System.Drawing.Point(62, 62);
+            this.txtJob.Location = new System.Drawing.Point(62, 51);
             this.txtJob.Name = "txtJob";
             this.txtJob.Size = new System.Drawing.Size(200, 20);
             this.txtJob.TabIndex = 1;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(62, 28);
+            this.txtName.Location = new System.Drawing.Point(62, 19);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 20);
             this.txtName.TabIndex = 0;
@@ -340,9 +321,9 @@
             this.grpBoxHobites.Controls.Add(this.CheckBox3);
             this.grpBoxHobites.Controls.Add(this.CheckBox2);
             this.grpBoxHobites.Controls.Add(this.CheckBox1);
-            this.grpBoxHobites.Location = new System.Drawing.Point(12, 179);
+            this.grpBoxHobites.Location = new System.Drawing.Point(21, 208);
             this.grpBoxHobites.Name = "grpBoxHobites";
-            this.grpBoxHobites.Size = new System.Drawing.Size(100, 128);
+            this.grpBoxHobites.Size = new System.Drawing.Size(224, 77);
             this.grpBoxHobites.TabIndex = 25;
             this.grpBoxHobites.TabStop = false;
             this.grpBoxHobites.Text = "Hobites";
@@ -350,7 +331,7 @@
             // CheckBox4
             // 
             this.CheckBox4.AutoSize = true;
-            this.CheckBox4.Location = new System.Drawing.Point(7, 96);
+            this.CheckBox4.Location = new System.Drawing.Point(6, 47);
             this.CheckBox4.Name = "CheckBox4";
             this.CheckBox4.Size = new System.Drawing.Size(90, 17);
             this.CheckBox4.TabIndex = 3;
@@ -360,7 +341,7 @@
             // CheckBox3
             // 
             this.CheckBox3.AutoSize = true;
-            this.CheckBox3.Location = new System.Drawing.Point(7, 72);
+            this.CheckBox3.Location = new System.Drawing.Point(134, 47);
             this.CheckBox3.Name = "CheckBox3";
             this.CheckBox3.Size = new System.Drawing.Size(84, 17);
             this.CheckBox3.TabIndex = 2;
@@ -370,7 +351,7 @@
             // CheckBox2
             // 
             this.CheckBox2.AutoSize = true;
-            this.CheckBox2.Location = new System.Drawing.Point(6, 49);
+            this.CheckBox2.Location = new System.Drawing.Point(134, 17);
             this.CheckBox2.Name = "CheckBox2";
             this.CheckBox2.Size = new System.Drawing.Size(73, 17);
             this.CheckBox2.TabIndex = 1;
@@ -380,7 +361,7 @@
             // CheckBox1
             // 
             this.CheckBox1.AutoSize = true;
-            this.CheckBox1.Location = new System.Drawing.Point(6, 26);
+            this.CheckBox1.Location = new System.Drawing.Point(6, 19);
             this.CheckBox1.Name = "CheckBox1";
             this.CheckBox1.Size = new System.Drawing.Size(63, 17);
             this.CheckBox1.TabIndex = 0;
@@ -389,6 +370,8 @@
             // 
             // grpBoxBasicInfo
             // 
+            this.grpBoxBasicInfo.Controls.Add(this.NumericUpDownSalary);
+            this.grpBoxBasicInfo.Controls.Add(this.lblSalary);
             this.grpBoxBasicInfo.Controls.Add(this.btnImageBrowse);
             this.grpBoxBasicInfo.Controls.Add(this.PictureBoxPersonalImg);
             this.grpBoxBasicInfo.Controls.Add(this.lblName);
@@ -401,7 +384,7 @@
             this.grpBoxBasicInfo.Controls.Add(this.txtName);
             this.grpBoxBasicInfo.Location = new System.Drawing.Point(12, 12);
             this.grpBoxBasicInfo.Name = "grpBoxBasicInfo";
-            this.grpBoxBasicInfo.Size = new System.Drawing.Size(413, 152);
+            this.grpBoxBasicInfo.Size = new System.Drawing.Size(413, 187);
             this.grpBoxBasicInfo.TabIndex = 24;
             this.grpBoxBasicInfo.TabStop = false;
             this.grpBoxBasicInfo.Text = "Basic Information";
@@ -409,7 +392,7 @@
             // lblBirthDate
             // 
             this.lblBirthDate.AutoSize = true;
-            this.lblBirthDate.Location = new System.Drawing.Point(6, 95);
+            this.lblBirthDate.Location = new System.Drawing.Point(6, 84);
             this.lblBirthDate.Name = "lblBirthDate";
             this.lblBirthDate.Size = new System.Drawing.Size(52, 13);
             this.lblBirthDate.TabIndex = 3;
@@ -419,7 +402,7 @@
             // 
             this.grpBoxGender.Controls.Add(this.RadioButtonFemale);
             this.grpBoxGender.Controls.Add(this.RadioButtonMale);
-            this.grpBoxGender.Location = new System.Drawing.Point(118, 179);
+            this.grpBoxGender.Location = new System.Drawing.Point(253, 208);
             this.grpBoxGender.Name = "grpBoxGender";
             this.grpBoxGender.Size = new System.Drawing.Size(156, 78);
             this.grpBoxGender.TabIndex = 26;
@@ -434,19 +417,47 @@
             // 
             this.printDialog2.UseEXDialog = true;
             // 
+            // NumericUpDownSalary
+            // 
+            this.NumericUpDownSalary.Location = new System.Drawing.Point(60, 143);
+            this.NumericUpDownSalary.Maximum = new decimal(new int[] {
+            20000,
+            0,
+            0,
+            0});
+            this.NumericUpDownSalary.Name = "NumericUpDownSalary";
+            this.NumericUpDownSalary.Size = new System.Drawing.Size(200, 20);
+            this.NumericUpDownSalary.TabIndex = 24;
+            // 
+            // lblSalary
+            // 
+            this.lblSalary.AutoSize = true;
+            this.lblSalary.Location = new System.Drawing.Point(6, 145);
+            this.lblSalary.Name = "lblSalary";
+            this.lblSalary.Size = new System.Drawing.Size(36, 13);
+            this.lblSalary.TabIndex = 25;
+            this.lblSalary.Text = "Salary";
+            // 
+            // dgvEmployees
+            // 
+            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Location = new System.Drawing.Point(292, 312);
+            this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.Size = new System.Drawing.Size(384, 204);
+            this.dgvEmployees.TabIndex = 34;
+            // 
             // frmReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 559);
+            this.ClientSize = new System.Drawing.Size(680, 523);
+            this.Controls.Add(this.dgvEmployees);
             this.Controls.Add(this.btnResult);
             this.Controls.Add(this.ProgressBar1);
             this.Controls.Add(this.lblPercentage);
             this.Controls.Add(this.NumericUpDown2);
             this.Controls.Add(this.txtDescreption);
-            this.Controls.Add(this.NumericUpDownSalary);
             this.Controls.Add(this.grpboxReport);
-            this.Controls.Add(this.lblSalary);
             this.Controls.Add(this.lblProgrammingLanguage);
             this.Controls.Add(this.lblDescreption);
             this.Controls.Add(this.grpBoxHobites);
@@ -461,7 +472,6 @@
             this.Text = "Rigesteration";
             this.Load += new System.EventHandler(this.frmReg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownSalary)).EndInit();
             this.grpboxReport.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxPersonalImg)).EndInit();
             this.grpBoxHobites.ResumeLayout(false);
@@ -470,6 +480,8 @@
             this.grpBoxBasicInfo.PerformLayout();
             this.grpBoxGender.ResumeLayout(false);
             this.grpBoxGender.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownSalary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,7 +495,6 @@
         internal System.Windows.Forms.Label lblPercentage;
         internal System.Windows.Forms.NumericUpDown NumericUpDown2;
         internal System.Windows.Forms.TextBox txtDescreption;
-        internal System.Windows.Forms.NumericUpDown NumericUpDownSalary;
         internal System.Windows.Forms.Button btnImageBrowse;
         internal System.Windows.Forms.GroupBox grpboxReport;
         internal System.Windows.Forms.RichTextBox rtxtReport;
@@ -499,7 +510,6 @@
         internal System.Windows.Forms.Label lblName;
         internal System.Windows.Forms.Label lblJob;
         internal System.Windows.Forms.Label lblStatus;
-        internal System.Windows.Forms.Label lblSalary;
         internal System.Windows.Forms.Label lblProgrammingLanguage;
         internal System.Windows.Forms.Label lblDescreption;
         internal System.Windows.Forms.ComboBox ComboBoxStatus;
@@ -516,6 +526,9 @@
         internal System.Windows.Forms.GroupBox grpBoxGender;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PrintDialog printDialog2;
+        internal System.Windows.Forms.NumericUpDown NumericUpDownSalary;
+        internal System.Windows.Forms.Label lblSalary;
+        private System.Windows.Forms.DataGridView dgvEmployees;
     }
 }
 

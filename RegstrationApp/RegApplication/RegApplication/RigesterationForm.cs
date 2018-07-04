@@ -6,18 +6,8 @@ namespace RegApplication
 {
     public partial class frmReg : Form
     {
-        #region variables
-        string name;
-        string job;
-        string dob;
-        string status;
-        string habites;
-        string gender;
-        string salary;
-        string description;
-        string cSharp;
-        Image profileImage;
-        #endregion
+        private Employee employee;
+        private BindingSource bs;
 
         public frmReg()
         {
@@ -26,39 +16,22 @@ namespace RegApplication
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-            #region store textbox, date, Numeric and combo values
-            name = txtName.Text;
-            job = txtJob.Text;
-            dob = DateTimePickerBirthDate.Value.ToShortDateString();
-            status = ComboBoxStatus.Text;
-            cSharp = NumericUpDown2.Value.ToString();
-            description = txtDescreption.Text;
-            salary = NumericUpDownSalary.Value.ToString();
-            habites = string.Empty;
-            #endregion
-
-            #region checkBox
-            // checkBox and radioBox results
-            if (CheckBox1.Checked)
-                habites += "Football\t";
-            if (CheckBox2.Checked)
-                habites += "Swimming\t";
-            if (CheckBox3.Checked)
-                habites += "Watching Tv\t";
-            if (CheckBox4.Checked)
-                habites += "Body Building\t";
-            #endregion
-
-            #region RadioButton
-            if (RadioButtonMale.Checked)
-                gender = "Male";
-            else
-                gender = "Female";
-            #endregion
+            employee = new Employee();
+            fillData(employee);
 
             #region writing results in richText
-            rtxtReport.Text = string.Format("---------- your information ----------\n Name : {0}\n Job : {1}\n Birth date : {2}\n Status : {3}\n Hobits : {4}\n Gender : {5}\n Salary : {6:C}\n C# : {7}%\n Descreption : {8}", name, job, dob, status, habites, gender, salary, cSharp, description);
+            rtxtReport.Text += $"Name:{employee.name}\n Job : {employee.job}\n" +
+                $" Date of birth : {employee.dateOfBirth}\n Status:{employee.status}\n " +
+                $"Hobits:{employee.habbits}\n Gender:{employee.gender}\n " +
+                $"Salary:{employee.salary}\n Descreption:{employee.description}\n " +
+                $"cSharp:{employee.cSharp}\n--------------------\n";
             #endregion
+
+            // adding current employee object into list
+            Employee.addEmployee(employee);
+            bs = new BindingSource();
+            bs.DataSource = Employee.emps;
+            dgvEmployees.DataSource = bs;
         }
 
         private void frmReg_Load(object sender, EventArgs e)
@@ -78,10 +51,6 @@ namespace RegApplication
         private void btnImageBrowse_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-
-            // PictureBoxPersonalImg.ImageLocation = openFileDialog1.FileName;
-            profileImage = Image.FromFile(openFileDialog1.FileName);
-            PictureBoxPersonalImg.Image = profileImage;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -99,7 +68,7 @@ namespace RegApplication
         private void PrintDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawString(rtxtReport.Text, new Font("TimesNewRoman", 20), Brushes.Black, 10, 10);
-            e.Graphics.DrawImage(profileImage, 100, 500);
+            e.Graphics.DrawImage(employee.profileImage, 100, 500);
         }
 
         private void btnPageSetup_Click(object sender, EventArgs e)
@@ -116,6 +85,45 @@ namespace RegApplication
         {
             PrintPreviewDialog1.ShowDialog();
             PrintPreviewDialog1.Document = PrintDocument1;
+        }
+
+        /// <summary>
+        /// Adding data from the Form to the Employee Object
+        /// </summary>
+        /// <param name="employee">Employee object</param>
+        public void fillData(Employee employee)
+        {
+            employee.name = txtName.Text;
+            employee.job = txtJob.Text;
+            employee.salary = NumericUpDownSalary.Value.ToString();
+            employee.cSharp = ProgressBar1.Value.ToString();
+            employee.dateOfBirth = DateTimePickerBirthDate.Text;
+            employee.description = txtDescreption.Text;
+            employee.profileImage = Image.FromFile(openFileDialog1.FileName);
+            PictureBoxPersonalImg.Image = employee.profileImage;
+            employee.status = ComboBoxStatus.Text;
+
+            #region RadioButton
+            if (RadioButtonMale.Checked)
+                employee.gender = "Male";
+            else
+                employee.gender = "Female";
+            #endregion
+
+            #region checkBox
+            // checkBox and radioBox results
+            if (CheckBox1.Checked)
+                employee.habbits += "Football\t";
+            if (CheckBox2.Checked)
+                employee.habbits += "Swimming\t";
+            if (CheckBox3.Checked)
+                employee.habbits += "Watching Tv\t";
+            if (CheckBox4.Checked)
+                employee.habbits += "Body Building\t";
+            #endregion
+
+            Helper.clearTextBoxes(this.Controls);
+
         }
     }
 }
